@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>使用Jekyll和github pages 搭建blog</title>
+	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/highlight/highlight.css">
+	<link rel="stylesheet" href="/css/blog/detail.css">
+</head>
+<body>
+<img src="/images/index/background.jpg" class="fullscreenImg">
+<div class="fullscreenMask"></div>
+
+
+<div class="panel-cover">
+	    <a href="/index.html"><img src="/images/index/face.jpg" class="face"></a>
+	    <h1>ismumu</h1>
+	    <h3>This is my little home</h3>
+	    <ul>
+	        <li><a class="fa fa-2x fa-tags" href="/blog.html" title="blog"><span class="description">Blog</span></a></li>
+	        <li><a class="fa fa-2x fa-github" target="_blank" href="https://github.com/Jnanke" title="GitHub"><span class="description">GitHub</span></a></li>
+	        <li><a class="fa fa-2x fa-facebook" target="_blank" href="https://www.facebook.com/cuifuzhen" title="Facebook"><span class="description">Facebook</span></a></li>
+	        <li><a class="fa fa-2x fa-tencent-weibo" target="_blank" href="http://t.qq.com/Jnanke" title="weibo"><span class="description">weibo</span></a></li>
+	    </ul>
+	</div>
+</div>
+<div class="content-wrapper">
+	<div class="post-detail">
+	<h1 class="detail-title">使用Jekyll和github pages 搭建blog</h1>
+	<h3 id="github">第1步：创建github项目</h3>
+
+<p>1.创建登陆github帐号</p>
+
+<p>2.新建一个项目</p>
+
+<h3 id="ssh-keys">第2步：创建一个SSH Keys</h3>
+
+<p>1.首先下载RailsInstaller，里面已经包括了Rails 3.0.3 、Ruby 1.8.7、SQLite 3.7.3 、Git 1.7.3.1 、DevKit，这些工具都是你深入学习git所必备的。</p>
+
+<p>2.输入下列语句，看看本地有没有ssh keys。</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="o">~</span><span class="sr">/.ssh</span></code></pre></figure>
+
+<p>如果有，则会进去；如果没有会返回找不到路径。</p>
+
+<p>3.接下来创建SSH Keys，执行下列代码。</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">rsa</span> <span class="o">-</span><span class="no">C</span> <span class="s2">"你的邮箱"</span></code></pre></figure>
+
+<p>4.然后会要你选择保存的位置，直接回车即可。</p>
+
+<p>5.接下来还要输入密码</p>
+
+<p>6.完成后，你就可以在你刚才保存的文件路径中看到一个id_rsa.pub文件了，公钥就在这里。</p>
+
+<p>7.用记事本打开id_rsa.pub，复制里面的东西，粘贴到Github项目的SSH Keys中。</p>
+
+<p>8.输入以下代码，测试是否可以成功连接。</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span> <span class="o">-</span><span class="no">T</span> <span class="n">git</span><span class="vi">@github</span><span class="p">.</span><span class="nf">com</span></code></pre></figure>
+
+<h3 id="github-1">第3步：设置github项目</h3>
+
+<p>1.登陆github找到刚刚创建的项目</p>
+
+<p>2.进设置里面设置github pages ，并且选择一套自己的模版</p>
+
+<p>3.把代码clone到本地</p>
+
+<h3 id="jekyll">第4步：安装使用jekyll</h3>
+
+<p>1.把gem的下载路径改成淘宝的，执行以下代码</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">sources</span> <span class="o">--</span><span class="n">add</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">ruby</span><span class="p">.</span><span class="nf">taobao</span><span class="p">.</span><span class="nf">org</span><span class="o">/</span> <span class="o">--</span><span class="n">remove</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">rubygems</span><span class="p">.</span><span class="nf">org</span><span class="o">/</span></code></pre></figure>
+
+<p>2.安装jekyll</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span></code></pre></figure>
+
+<p>3.进入刚才从git上clone下的文件夹（例：test）,创建一个_config.yml的文件，它是jekyll的设置文件，我们在里面填入如下内容，其他设置都可以用默认选项，具体解释参见<a href="http://jekyllrb.com/docs/configuration/" target="_blank">官方网页</a>。</p>
+
+<p>目录结构变成：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/test
+  |-- _config.yml</span></code></pre></figure>
+
+<p>4.在项目根目录下，创建一个_layouts目录，用于存放模板文件。</p>
+
+<p>5.进入该目录，创建一个default.html文件，作为Blog的默认模板。并在该文件中填入以下内容。(<strong><em>请无视花括号中间的斜杠</em></strong>)</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;!</span><span class="no">DOCTYPE</span> <span class="n">html</span><span class="o">&gt;</span>
+<span class="err">　　</span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+<span class="err">　　</span><span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">meta</span> <span class="n">charset</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="o">&gt;</span>
+<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">page</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/title&gt;
+　　&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+<span class="err">　　</span><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+
+<span class="err">　　　　</span><span class="p">{\{</span> <span class="n">content</span> <span class="p">}}</span>
+
+<span class="err">　　</span><span class="o">&lt;</span><span class="sr">/body&gt;
+&lt;/</span><span class="n">html</span><span class="o">&gt;</span></code></pre></figure>
+
+<p>Jekyll使用Liquid模板语言，{{ page.title }}表示文章标题，{{ content }}表示文章内容，更多模板变量请参考官方文档。
+目录结构变成：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/test
+  |-- _config.yml
+  |--　_layouts
+	|--　default.html</span></code></pre></figure>
+
+<p>6.创建一个_posts目录，用于存放blog文章。</p>
+
+<p>进入该目录，创建第一篇文章。文章就是普通的文本文件，文件名假定为2012-08-25-hello-word.html。(注意，文件名必须为”年-月-日-文章标题.后缀名”的格式。如果网页代码采用html格式，后缀名为html；如果采用markdown格式，后缀名为md。）
+在该文件中，填入以下内容：（注意，行首不能有空格）</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">---</span>
+<span class="err">　　</span><span class="ss">layout: </span><span class="n">default</span>
+<span class="err">　　</span><span class="ss">title: </span><span class="n">hello</span> <span class="n">word</span>
+<span class="o">---</span>
+<span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">page</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;
+&lt;p&gt;我的第一篇文章（请忽略上下花括号中奖的斜杠）&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">page</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/p&gt;</span></code></pre></figure>
+
+<p>目录结构变成：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/test
+　　　　|--　_config.yml
+　　　　|--　_layouts
+　　　　|　　　|--　default.html 
+　　　　|--　_posts
+　　　　|　　　|--　2012-08-25-hello-word.html</span></code></pre></figure>
+
+<p>7.有了文章以后，还需要有一个首页。回到根目录，创建一个index.html文件，填入以下内容。</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">---</span>
+<span class="err">　　</span><span class="ss">layout: </span><span class="n">default</span>
+<span class="err">　　</span><span class="ss">title: </span><span class="err">我的</span><span class="no">Blog</span>
+<span class="o">---</span>
+<span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">page</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/h2&gt;
+&lt;p&gt;最新文章&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+<span class="err">　　</span>
+<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="err">　　</span>
+<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="err">　　</span>
+<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="err">　　</span>
+<span class="o">&lt;</span><span class="sr">/ul&gt;</span></code></pre></figure>
+
+<p>8.启用本地服务</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jekyll</span> <span class="n">server</span></code></pre></figure>
+
+<p>9.访问：http://127.0.0.1:4000/</p>
+
+<p>10.成功后把代码提交到github，等10分钟左右，访问http://username.github.com/test/就可以看到Blog已经生成了（将username换成你的用户名）</p>
+
+<h3 id="section">第5步：绑定域名</h3>
+
+<p>1.如果你不想用http://username.github.com/test/这个域名，可以换成自己的域名。</p>
+
+<p>具体方法是在根目录下面，新建一个名为CNAME的文本文件，里面写入你要绑定的域名，比如example.com或者xxx.example.com。</p>
+
+<p>2.将域名的DNS解析改成CNAME，ip改成username.github.io</p>
+
+	</div>
+</div>
+</body>
+</html>
