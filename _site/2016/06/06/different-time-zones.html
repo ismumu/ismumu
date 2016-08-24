@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>new Date 不同时区的转换</title>
+	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/highlight/highlight.css">
+	<link rel="stylesheet" href="/css/blog/detail.css">
+</head>
+<body>
+<img src="/images/index/1.jpg" class="fullscreenImg">
+<div class="fullscreenMask"></div>
+
+
+<div class="panel-cover">
+	    <a href="/index.html"><img src="/images/index/face.png" class="face"></a>
+	    <h1>ismumu</h1>
+	    <h3>This is my little home</h3>
+	    <ul>
+	        <li><a class="fa fa-2x fa-tags" href="/blog.html" title="blog"><span class="description">Blog</span></a></li>
+	        <li><a class="fa fa-2x fa-github" target="_blank" href="https://github.com/ismumu" title="GitHub"><span class="description">GitHub</span></a></li>
+	        <li><a class="fa fa-2x fa-facebook" target="_blank" href="https://www.facebook.com/cuifuzhen" title="Facebook"><span class="description">Facebook</span></a></li>
+	        <li><a class="fa fa-2x fa-tencent-weibo" target="_blank" href="http://t.qq.com/Jnanke" title="weibo"><span class="description">weibo</span></a></li>
+	    </ul>
+	</div>
+</div>
+<div class="content-wrapper">
+	<div class="post-detail">
+	<h1 class="detail-title">new Date 不同时区的转换</h1>
+	<p>如下：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">function</span> <span class="n">calcTime</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="n">d</span> <span class="o">=</span> <span class="kp">new</span> <span class="no">Date</span><span class="p">();</span> 
+  <span class="n">utc</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="nf">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="nf">getTimezoneOffset</span><span class="p">()</span> <span class="o">*</span> <span class="mi">60000</span><span class="p">);</span> 
+  <span class="n">nd</span> <span class="o">=</span> <span class="kp">new</span> <span class="no">Date</span><span class="p">(</span><span class="n">utc</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3600000</span><span class="o">*</span><span class="n">offset</span><span class="p">));</span> 
+  <span class="k">return</span> <span class="s2">"The local time in "</span> <span class="o">+</span> <span class="n">city</span> <span class="o">+</span> <span class="s2">" is "</span> <span class="o">+</span> <span class="n">nd</span><span class="p">.</span><span class="nf">toLocaleString</span><span class="p">();</span> 
+<span class="p">}</span>
+
+<span class="n">alert</span><span class="p">(</span><span class="n">calcTime</span><span class="p">(</span><span class="s1">'Singapore'</span><span class="p">,</span> <span class="s1">'+8'</span><span class="p">));</span><span class="sr">//</span><span class="err">强制转换成中国时间</span>
+<span class="n">alert</span><span class="p">(</span><span class="n">calcTime</span><span class="p">(</span><span class="s1">'Singapore'</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="kp">new</span> <span class="no">Date</span><span class="p">()).</span><span class="nf">getTimezoneOffset</span><span class="p">()</span><span class="o">/</span><span class="mi">60</span><span class="p">));</span><span class="sr">//</span><span class="err">各地当地时间</span></code></pre></figure>
+
+	</div>
+</div>
+</body>
+</html>
