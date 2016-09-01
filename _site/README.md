@@ -1,3 +1,3 @@
 # ismumu
 
-this is my blog  url: <a href="http://ismumu.com" target="_blank">ismumu.com</a>
+this is my blog：<a href="http://ismumu.com" target="_blank">ismumu.com</a>

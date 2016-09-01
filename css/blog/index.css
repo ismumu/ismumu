@@ -136,18 +136,15 @@ body {
         overflow: auto;
     }
     .fullscreenImg {
-        height: 300px;
-        min-height: 300px;
+        min-height: 1000px;
     }
     .fullscreenMask {
-        height: 300px;
-        min-height: 300px;
+        min-height: 500px;
     }
     .panel-cover {
         position: fixed;
         width: 100%;
-        height: 300px;
-        min-height: 300px;
+        min-height: 500px;
         padding-top: 20px;
     }
     .panel-cover ul {
@@ -157,7 +154,7 @@ body {
     .content-wrapper {
         position: relative;
         left: 0;
-        top: 300px;
+        top: 500px;
         width: 100%;
         height: auto;
         
