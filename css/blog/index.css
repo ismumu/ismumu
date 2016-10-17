@@ -136,7 +136,7 @@ body {
         overflow: auto;
     }
     .fullscreenImg {
-        min-height: 1000px;
+        min-height: 500px;
     }
     .fullscreenMask {
         min-height: 500px;
