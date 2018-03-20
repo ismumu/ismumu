@@ -11,7 +11,7 @@ title: new Date 不同时区的转换
 function calcTime(city, offset) { 
   var d = new Date(); 
   utc = d.getTime() + (d.getTimezoneOffset() * 60000); 
-  nd = new Date(utc + (3600000*offset)); 
+  nd = new Date(utc + (3600000 * offset)); 
   return "The local time in " + city + " is " + nd.toLocaleString(); 
 }
 

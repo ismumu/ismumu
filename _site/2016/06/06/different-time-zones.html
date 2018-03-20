@@ -13,7 +13,6 @@
 	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/common/common.css">
 	<link rel="stylesheet" href="/css/highlight/highlight.css">
-	<!-- <link class="codestyle" rel="prefetch alternate stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"> -->
 	<link rel="stylesheet" href="/css/blog/index.css">
 </head>
 
@@ -40,10 +39,6 @@
 					</li>
 					
 					<li>
-						<h2 class="post-title"><a href="/2016/03/28/blog-with-jekyll.html">使用Jekyll和github pages 搭建blog</a></h2>
-					</li>
-					
-					<li>
 						<h2 class="post-title"><a href="/2016/03/25/firstblog.html">My first blog</a></h2>
 					</li>
 					
@@ -58,7 +53,7 @@
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">function</span> <span class="n">calcTime</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span> <span class="p">{</span> 
   <span class="n">var</span> <span class="n">d</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Date</span><span class="p">();</span> 
   <span class="n">utc</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="nf">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="nf">getTimezoneOffset</span><span class="p">()</span> <span class="o">*</span> <span class="mi">60000</span><span class="p">);</span> 
-  <span class="n">nd</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Date</span><span class="p">(</span><span class="n">utc</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3600000</span><span class="o">*</span><span class="n">offset</span><span class="p">));</span> 
+  <span class="n">nd</span> <span class="o">=</span> <span class="n">new</span> <span class="no">Date</span><span class="p">(</span><span class="n">utc</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3600000</span> <span class="o">*</span> <span class="n">offset</span><span class="p">));</span> 
   <span class="k">return</span> <span class="s2">"The local time in "</span> <span class="o">+</span> <span class="n">city</span> <span class="o">+</span> <span class="s2">" is "</span> <span class="o">+</span> <span class="n">nd</span><span class="p">.</span><span class="nf">toLocaleString</span><span class="p">();</span> 
 <span class="p">}</span>
 
