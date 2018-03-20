@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<title>使用Jekyll和github pages 搭建blog</title>	
-	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+	<title>使用Jekyll和github pages 搭建blog</title>
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script src="/js/popper/popper.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.min.js"></script>
+	<script src="/js/jquery/jquery.pin.js"></script>
+
 	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/common/common.css">
 	<link rel="stylesheet" href="/css/highlight/highlight.css">
-	<link rel="stylesheet" href="/css/blog/detail.css">
+	<!-- <link class="codestyle" rel="prefetch alternate stylesheet" href="https://highlightjs.org/static/demo/styles/atom-one-dark.css"> -->
+	<link rel="stylesheet" href="/css/blog/index.css">
 </head>
+
 <body>
-<img src="/images/index/1.jpg" class="fullscreenImg">
-<div class="fullscreenMask"></div>
 
-
-<div class="panel-cover">
-	    <a href="/index.html"><img src="/images/index/face.png" class="face"></a>
-	    <h1>ismumu</h1>
-	    <h3>This is my little home</h3>
-	    <ul>
-	        <li><a class="fa fa-2x fa-tags" href="/blog.html" title="blog"><span class="description">Blog</span></a></li>
-	        <li><a class="fa fa-2x fa-github" target="_blank" href="https://github.com/ismumu" title="GitHub"><span class="description">GitHub</span></a></li>
-	        <li><a class="fa fa-2x fa-facebook" target="_blank" href="https://www.facebook.com/cuifuzhen" title="Facebook"><span class="description">Facebook</span></a></li>
-	        <li><a class="fa fa-2x fa-tencent-weibo" target="_blank" href="http://t.qq.com/Jnanke" title="weibo"><span class="description">weibo</span></a></li>
-	    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<a class="navbar-brand" href="/">ismumu' home</a>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home</a>
+			</li>
+		</ul>
 	</div>
-</div>
-<div class="content-wrapper">
-	<div class="post-detail">
-	<h1 class="detail-title">使用Jekyll和github pages 搭建blog</h1>
-	<h3 id="第1步创建github项目">第1步：创建github项目</h3>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 sidebar">
+			<div class="post-list">
+				<ul>
+					
+					<li>
+						<h2 class="post-title"><a href="/2016/06/06/different-time-zones.html">new Date 不同时区的转换</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2016/03/28/blog-with-jekyll.html">使用Jekyll和github pages 搭建blog</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2016/03/25/firstblog.html">My first blog</a></h2>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="blog-content">
+				<h1>使用Jekyll和github pages 搭建blog</h1>
+				<h3 id="第1步创建github项目">第1步：创建github项目</h3>
 
 <p>1.创建登陆github帐号</p>
 
@@ -148,12 +173,6 @@
 <span class="err">　　</span>
 <span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
 <span class="err">　　</span>
-<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<span class="err">　　</span>
-<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<span class="err">　　</span>
-<span class="err">　　　　</span><span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">date</span> <span class="o">|</span> <span class="n">date_to_string</span> <span class="p">}}</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{</span><span class="se">\{</span><span class="s2"> post.url }}"</span><span class="o">&gt;</span><span class="p">{\{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-<span class="err">　　</span>
 <span class="o">&lt;</span><span class="sr">/ul&gt;</span></code></pre></figure>
 
 <p>8.启用本地服务</p>
@@ -172,7 +191,14 @@
 
 <p>2.将域名的DNS解析改成CNAME，ip改成username.github.io</p>
 
+			</div>
+		</div>
 	</div>
 </div>
+<script>
+	$(function () {
+		$(".post-list").pin({containerSelector: ".sidebar"})
+	})
+</script>
 </body>
 </html>

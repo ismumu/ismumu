@@ -4,3 +4,27 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+ul, li {
+    list-style: none;
+}
+
+.sidebar {
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    min-height: 100vh;
+}
+.navbar-brand {
+    text-transform: capitalize;
+}
+.blog-content {
+    padding-top: 4rem;
+    padding-left: 20px;
+}
+.blog-content h1 {
+    font-size: 24px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin: 10px 0;
+    margin-bottom: 30px;
+}
