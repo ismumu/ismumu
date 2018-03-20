@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>My first blog</title>
+	<title>在Nginx下配置使用单页面spa</title>
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/popper/popper.min.js"></script>
 	<script src="/js/bootstrap/bootstrap.min.js"></script>
@@ -73,10 +73,18 @@
 		</div>
 		<div class="col-sm-9">
 			<div class="blog-content">
-				<h1>My first blog</h1>
-				<p>吭哧吭哧吭哧…..</p>
+				<h1>在Nginx下配置使用单页面spa</h1>
+				<p>配置如下</p>
 
-<p>累死本宝宝了，终于弄好了 ：）</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">server</span> <span class="p">{</span>
+	<span class="nx">listen</span>  <span class="mi">80</span><span class="p">;</span>
+	<span class="nx">server_name</span> <span class="nx">ismumu</span><span class="p">.</span><span class="nx">com</span><span class="p">;</span>
+	<span class="nx">location</span> <span class="o">/</span> <span class="p">{</span>
+		<span class="nx">try_files</span> <span class="nx">$uri</span> <span class="nx">$uri</span><span class="o">/</span> <span class="sr">/index.html</span><span class="err">;
+</span>		<span class="nx">root</span> <span class="o">/</span><span class="nx">www</span><span class="o">/</span><span class="nx">dva</span><span class="o">-</span><span class="nx">demo</span><span class="o">/</span><span class="nx">dist</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 			</div>
 		</div>
