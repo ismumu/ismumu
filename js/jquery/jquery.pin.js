@@ -107,7 +107,10 @@
         $window.resize(function () { recalculateLimits(); });
         recalculateLimits();
 
-        $window.load(update);
+        // $window.load(update);
+        $(function () {
+            update();
+        })
 
         return this;
       };

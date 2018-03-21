@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Nginx开启gzip</title>
+	<title>svn常见问题汇总</title>
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/popper/popper.min.js"></script>
 	<script src="/js/bootstrap/bootstrap.min.js"></script>
@@ -85,18 +85,21 @@
 		</div>
 		<div class="col-sm-9">
 			<div class="blog-content">
-				<h1>Nginx开启gzip</h1>
-				<p>配置如下</p>
+				<h1>svn常见问题汇总</h1>
+				<h2 id="1-子目录添加了很多文件导致不能add">1. 子目录添加了很多文件导致不能add</h2>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gzip</span>  <span class="nx">on</span><span class="p">;</span>
-<span class="nx">gzip_min_length</span> <span class="mi">1</span><span class="nx">k</span><span class="p">;</span>
-<span class="nx">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="nx">k</span><span class="p">;</span>
-<span class="nx">gzip_http_version</span> <span class="mf">1.0</span><span class="p">;</span>
-<span class="nx">gzip_comp_level</span> <span class="mi">5</span><span class="p">;</span>
-<span class="nx">gzip_types</span> <span class="nx">text</span><span class="o">/</span><span class="nx">plain</span> <span class="nx">application</span><span class="o">/</span><span class="nx">javascript</span> <span class="nx">application</span><span class="o">/</span><span class="nx">x</span><span class="o">-</span><span class="nx">javascript</span> <span class="nx">text</span><span class="o">/</span><span class="nx">javascript</span> <span class="nx">text</span><span class="o">/</span><span class="nx">xml</span> <span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="p">;</span>
-<span class="nx">gzip_disable</span> <span class="s2">"MSIE [1-6]</span><span class="err">\</span><span class="s2">."</span><span class="p">;</span>
-<span class="nx">gzip_vary</span> <span class="nx">on</span><span class="p">;</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">svn</span><span class="p">:</span> <span class="nx">warning</span><span class="p">:</span> <span class="nx">W150002</span><span class="p">:</span> <span class="s1">'/Users/ismumu/svn/xxxx/xxxx'</span> <span class="nx">is</span> <span class="nx">already</span> <span class="nx">under</span> <span class="nx">version</span> <span class="nx">control</span>
+<span class="nx">svn</span><span class="p">:</span> <span class="nx">E200009</span><span class="p">:</span> <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">add</span> <span class="nx">all</span> <span class="nx">targets</span> <span class="nx">because</span> <span class="nx">some</span> <span class="nx">targets</span> <span class="nx">are</span> <span class="nx">already</span> <span class="nx">versioned</span>
+<span class="nx">svn</span><span class="p">:</span> <span class="nx">E200009</span><span class="p">:</span> <span class="nx">Illegal</span> <span class="nx">target</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">requested</span> <span class="nx">operation</span>
 </code></pre></div></div>
+
+<hr />
+
+<p>解决办法</p>
+
+<p>svn add /Users/ismumu/svn/xxxx/xxxxx(目录名) –force</p>
+
+<p>这样就可以把这个目录的最新状态提交上去了。</p>
 
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: new Date 不同时区的转换
-tags: [js]
+tags: [Javascript]
 ---
 
 

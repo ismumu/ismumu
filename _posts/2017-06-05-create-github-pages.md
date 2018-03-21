@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: 创建github page
-tags: [github]
+tags: [GitHub]
 ---
 
 
