@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>svn常见问题汇总</title>
+	<link rel="shortcut icon" href="/favicon.ico">
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/popper/popper.min.js"></script>
 	<script src="/js/bootstrap/bootstrap.min.js"></script>
@@ -40,6 +41,10 @@
 				</li>
 			 
 				<li class="nav-item active">
+					<a class="nav-link" href="#">Linux</a>
+				</li>
+			 
+				<li class="nav-item active">
 					<a class="nav-link" href="#">Svn</a>
 				</li>
 			
@@ -54,6 +59,10 @@
 					
 					<li>
 						<h2 class="post-title"><a href="/2018/03/21/svn.html">svn常见问题汇总</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/03/21/linux.html">linux常见问题汇总</a></h2>
 					</li>
 					
 					<li>
@@ -91,15 +100,13 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">svn</span><span class="p">:</span> <span class="nx">warning</span><span class="p">:</span> <span class="nx">W150002</span><span class="p">:</span> <span class="s1">'/Users/ismumu/svn/xxxx/xxxx'</span> <span class="nx">is</span> <span class="nx">already</span> <span class="nx">under</span> <span class="nx">version</span> <span class="nx">control</span>
 <span class="nx">svn</span><span class="p">:</span> <span class="nx">E200009</span><span class="p">:</span> <span class="nx">Could</span> <span class="nx">not</span> <span class="nx">add</span> <span class="nx">all</span> <span class="nx">targets</span> <span class="nx">because</span> <span class="nx">some</span> <span class="nx">targets</span> <span class="nx">are</span> <span class="nx">already</span> <span class="nx">versioned</span>
 <span class="nx">svn</span><span class="p">:</span> <span class="nx">E200009</span><span class="p">:</span> <span class="nx">Illegal</span> <span class="nx">target</span> <span class="k">for</span> <span class="nx">the</span> <span class="nx">requested</span> <span class="nx">operation</span>
+
+<span class="c1">// 解决办法，这样就可以把这个目录的最新状态提交上去了。</span>
+<span class="nx">svn</span> <span class="nx">add</span> <span class="o">/</span><span class="nx">Users</span><span class="o">/</span><span class="nx">ismumu</span><span class="o">/</span><span class="nx">svn</span><span class="o">/</span><span class="nx">xxxx</span><span class="o">/</span><span class="nx">xxxxx</span><span class="p">(</span><span class="err">目录名</span><span class="p">)</span> <span class="o">--</span><span class="nx">force</span>
 </code></pre></div></div>
 
 <hr />
 
-<p>解决办法</p>
-
-<p>svn add /Users/ismumu/svn/xxxx/xxxxx(目录名) –force</p>
-
-<p>这样就可以把这个目录的最新状态提交上去了。</p>
 
 			</div>
 		</div>

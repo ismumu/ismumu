@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Nginx开启gzip</title>
+	<title>linux常见问题汇总</title>
 	<link rel="shortcut icon" href="/favicon.ico">
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/popper/popper.min.js"></script>
@@ -94,18 +94,31 @@
 		</div>
 		<div class="col-sm-9">
 			<div class="blog-content">
-				<h1>Nginx开启gzip</h1>
-				<p>配置如下</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">gzip</span>  <span class="nx">on</span><span class="p">;</span>
-<span class="nx">gzip_min_length</span> <span class="mi">1</span><span class="nx">k</span><span class="p">;</span>
-<span class="nx">gzip_buffers</span> <span class="mi">4</span> <span class="mi">16</span><span class="nx">k</span><span class="p">;</span>
-<span class="nx">gzip_http_version</span> <span class="mf">1.0</span><span class="p">;</span>
-<span class="nx">gzip_comp_level</span> <span class="mi">5</span><span class="p">;</span>
-<span class="nx">gzip_types</span> <span class="nx">text</span><span class="o">/</span><span class="nx">plain</span> <span class="nx">application</span><span class="o">/</span><span class="nx">javascript</span> <span class="nx">application</span><span class="o">/</span><span class="nx">x</span><span class="o">-</span><span class="nx">javascript</span> <span class="nx">text</span><span class="o">/</span><span class="nx">javascript</span> <span class="nx">text</span><span class="o">/</span><span class="nx">xml</span> <span class="nx">text</span><span class="o">/</span><span class="nx">css</span><span class="p">;</span>
-<span class="nx">gzip_disable</span> <span class="s2">"MSIE [1-6]</span><span class="err">\</span><span class="s2">."</span><span class="p">;</span>
-<span class="nx">gzip_vary</span> <span class="nx">on</span><span class="p">;</span>
+				<h1>linux常见问题汇总</h1>
+				<h3 id="1-centos安装node">1. centos安装node</h3>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nx">curl</span> <span class="o">--</span><span class="nx">silent</span> <span class="o">--</span><span class="nx">location</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//rpm.nodesource.com/setup_8.x | bash -</span>
+<span class="mi">2</span><span class="p">.</span> <span class="nx">yum</span> <span class="nx">install</span> <span class="o">-</span><span class="nx">y</span> <span class="nx">nodejs</span>
 </code></pre></div></div>
+
+<hr />
+
+<h3 id="2-centos7-开放端口">2. Centos7 开放端口</h3>
+
+<p>Centos升级到7之后，发现无法使用iptables控制Linuxs的端口，之后发现Centos 7使用firewalld代替了原来的iptables。下面记录如何使用firewalld开放Linux端口：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 开启端口</span>
+<span class="nx">firewall</span><span class="o">-</span><span class="nx">cmd</span> <span class="o">--</span><span class="nx">zone</span><span class="o">=</span><span class="kr">public</span> <span class="o">--</span><span class="nx">add</span><span class="o">-</span><span class="nx">port</span><span class="o">=</span><span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span> <span class="o">--</span><span class="nx">permanent</span>
+
+<span class="c1">// 命令含义：</span>
+<span class="o">--</span><span class="nx">zone</span> <span class="c1">// 作用域</span>
+<span class="o">--</span><span class="nx">add</span><span class="o">-</span><span class="nx">port</span><span class="o">=</span><span class="mi">80</span><span class="o">/</span><span class="nx">tcp</span> <span class="c1">// 添加端口，格式为：端口/通讯协议</span>
+<span class="o">--</span><span class="nx">permanent</span> <span class="c1">// 永久生效，没有此参数重启后失效</span>
+
+<span class="c1">// 然后重启防火墙生效</span>
+<span class="nx">firewall</span><span class="o">-</span><span class="nx">cmd</span> <span class="o">--</span><span class="nx">reload</span> 
+
+</code></pre></div></div>
+
 
 			</div>
 		</div>
