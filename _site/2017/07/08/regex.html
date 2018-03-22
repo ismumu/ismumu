@@ -15,6 +15,10 @@
 	<link rel="stylesheet" href="/css/common/common.css">
 	<link rel="stylesheet" href="/css/highlight/highlight.css">
 	<link rel="stylesheet" href="/css/blog/index.css">
+
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
 </head>
 
 <body>
@@ -116,13 +120,14 @@
 <span class="o">/^</span><span class="p">(</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">15</span><span class="p">}</span><span class="nx">$</span><span class="o">|^</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">18</span><span class="p">}</span><span class="nx">$</span><span class="o">|^</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">17</span><span class="p">}(</span><span class="err">\</span><span class="nx">d</span><span class="o">|</span><span class="nx">X</span><span class="o">|</span><span class="nx">x</span><span class="p">))</span><span class="nx">$</span><span class="o">/</span>
 
 <span class="c1">// 验证金钱格式，x or x.x or x.xx ,x为数字，不允许0开头</span>
-<span class="sr">/^</span><span class="se">[</span><span class="sr">1-9</span><span class="se">]</span><span class="sr">+</span><span class="se">[</span><span class="sr">1-9</span><span class="se">]</span><span class="sr">+</span><span class="se">([</span><span class="sr">.</span><span class="se">][</span><span class="sr">0-9</span><span class="se">]{0,2}){0,1}</span><span class="sr">$/</span>
+<span class="sr">/^</span><span class="se">(?=[\d</span><span class="sr">.</span><span class="se">]{1,15})([</span><span class="sr">1-9</span><span class="se">]\d{1,14}</span><span class="sr">|</span><span class="se">\d)([</span><span class="sr">.</span><span class="se">][</span><span class="sr">0-9</span><span class="se">]{0,2})?</span><span class="sr">$/</span>
 
 <span class="c1">// 1-15位的纯数字</span>
 <span class="o">/^</span><span class="err">\</span><span class="nx">d</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">}</span><span class="nx">$</span><span class="o">/</span><span class="p">,</span>
 
 </code></pre></div></div>
 
+				<div id="comments"></div>
 			</div>
 		</div>
 	</div>
