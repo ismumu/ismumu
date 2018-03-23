@@ -2,7 +2,7 @@ $(function () {
     $(".post-list").pin({ containerSelector: ".sidebar" })
 
     var gitment = new Gitment({
-        // id: '页面 ID', // 可选。默认为 location.href
+        id: location.pathname.slice(12),
         owner: 'ismumu',
         repo: 'ismumu-comments',
         oauth: {
