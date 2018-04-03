@@ -3,17 +3,6 @@ $(function () {
     $(".post-list").pin({ containerSelector: ".sidebar" })
 
 
-    var gitment = new Gitment({
-        id: location.pathname,
-        owner: 'ismumu',
-        repo: 'ismumu-comments',
-        oauth: {
-            client_id: '967be3ff5cbadbc11347',
-            client_secret: '88dca966f3d89abafe950ff037ef2c7a21538941',
-        }
-    })
-    gitment.render('comments');
-
 
     // 获取浏览器参数
     var getUrlParam = function getUrlParam(name) {
@@ -44,6 +33,19 @@ $(function () {
             if ( _url == obj.url ) {
                 $('.J-tag-h1').text(obj.title);
                 $('.J-tag-content').html(obj.content);
+
+                // 初始化评论系统
+                var gitment = new Gitment({
+                    id: obj.url.slice(12),
+                    owner: 'ismumu',
+                    repo: 'ismumu-comments',
+                    oauth: {
+                        client_id: '967be3ff5cbadbc11347',
+                        client_secret: '88dca966f3d89abafe950ff037ef2c7a21538941',
+                    }
+                })
+                gitment.render('comments');
+
             }
         })
     }).eq(0).trigger('click');
