@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>new Date 不同时区的转换 - ismumu' home</title>
+	<title>mysql查看当前端口号 - ismumu' home</title>
 	<link rel="shortcut icon" href="/favicon.ico">
 	<script src="/js/jquery/jquery.min.js"></script>
 	<script src="/js/popper/popper.min.js"></script>
@@ -103,18 +103,20 @@
 		</div>
 		<div class="col-sm-9">
 			<div class="blog-content">
-				<h1>new Date 不同时区的转换</h1>
-				<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">calcTime</span><span class="p">(</span><span class="nx">city</span><span class="p">,</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span> 
-  <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span> 
-  <span class="kd">var</span> <span class="nx">utc</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getTimezoneOffset</span><span class="p">()</span> <span class="o">*</span> <span class="mi">60000</span><span class="p">);</span> 
-  <span class="kd">var</span> <span class="nx">nd</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">utc</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3600000</span> <span class="o">*</span> <span class="nx">offset</span><span class="p">));</span> 
-  <span class="k">return</span> <span class="s2">"The local time in "</span> <span class="o">+</span> <span class="nx">city</span> <span class="o">+</span> <span class="s2">" is "</span> <span class="o">+</span> <span class="nx">nd</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">();</span> 
-<span class="p">}</span>
+				<h1>mysql查看当前端口号</h1>
+				<h2 id="1-子目录添加了很多文件导致不能add">1. 子目录添加了很多文件导致不能add</h2>
 
-<span class="nx">alert</span><span class="p">(</span><span class="nx">calcTime</span><span class="p">(</span><span class="s1">'Singapore'</span><span class="p">,</span> <span class="s1">'+8'</span><span class="p">));</span><span class="c1">//强制转换成中国时间</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">calcTime</span><span class="p">(</span><span class="s1">'Singapore'</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTimezoneOffset</span><span class="p">()</span><span class="o">/</span><span class="mi">60</span><span class="p">));</span><span class="c1">//各地当地时间</span>
-
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mysql</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">variables</span> <span class="nx">like</span> <span class="s1">'port'</span><span class="p">;</span>
+<span class="o">+---------------+-------+</span>
+<span class="o">|</span> <span class="nx">Variable_name</span> <span class="o">|</span> <span class="nx">Value</span> <span class="o">|</span>
+<span class="o">+---------------+-------+</span>
+<span class="o">|</span> <span class="nx">port</span>          <span class="o">|</span> <span class="mi">3306</span>  <span class="o">|</span>
+<span class="o">+---------------+-------+</span>
+<span class="mi">1</span> <span class="nx">row</span> <span class="k">in</span> <span class="kd">set</span> <span class="p">(</span><span class="mf">0.00</span> <span class="nx">sec</span><span class="p">)</span>
 </code></pre></div></div>
+
+<hr />
+
 
 				<div id="comments"></div>
 			</div>
