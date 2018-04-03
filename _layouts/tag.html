@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="/css/gitment/gitment.css">
 	<link rel="stylesheet" href="/css/common/common.css">
 	<link rel="stylesheet" href="/css/highlight/highlight.css">
-	<link rel="stylesheet" href="/css/blog/index.css">
+	<link rel="stylesheet" href="/css/tag/tag.css">
 
 
 </head>
@@ -24,7 +24,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="/">ismumu' home</a> | 
+	<a class="navbar-brand" href="{{site.posts[0].url}}">ismumu' home</a> | 
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav">
 			{% for tag in site.tags %} 
@@ -39,27 +39,44 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3 sidebar">
-			<div class="post-list">
-				<ul>
-					{% for post in site.posts %}
-					<li>
-						<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-					</li>
-					{% endfor %}
-				</ul>
+			<div class="tag-list">
+				<ul></ul>
 			</div>
 		</div>
 		<div class="col-sm-9">
 			<div class="blog-content">
-				<h1>{{page.title}}</h1>
-				{{content}}
+				<h1 class="J-tag-h1"></h1>
+				<div class="J-tag-content"></div>
 				<div id="comments"></div>
+				<div class="aa"></div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<script src="/js/blog/index.js"></script>
+<script>
+
+var tagData = {}
+
+{% for tag in site.tags %}
+	{% for post in tag[1] %}
+	tagData.{{tag[0]}} = [];
+	{% endfor %}
+{% endfor %}
+
+{% for tag in site.tags %}
+	{% for post in tag[1] %}
+	tagData.{{tag[0]}}.push({
+		title: `{{post.title}}`,
+		date: `{{post.date | 'date':"%d/%m/%Y"}}`,
+		content: `{{post.content}}`,
+		url: `{{post.url}}`,
+	})
+	{% endfor %}
+{% endfor %}
+
+</script>
+<script src="/js/tag/tag.js"></script>
 
 </body>
 </html>
