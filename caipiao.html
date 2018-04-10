@@ -1,0 +1,50 @@
+---
+layout: index
+title: ismumu's home
+---
+
+<style>
+.caipiao {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    font-size: 40px;
+    width: 800px;
+    height: 200px;
+    margin-left: -400px;
+    margin-top: -100px;
+}
+.caipiao p {
+    margin-top: 10px;
+    font-size: 30px;
+}
+.caipiao p span {
+    margin: 0 5px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    background: #2a6496;
+    color: #FFF;
+    border-radius: 4px;
+    border: 1px solid #2a6496;
+}
+</style>
+<div class="caipiao">
+    今日必中数字<br/>
+    <p class="J-number"></p>
+</div>
+
+<script>
+
+var list = [];
+
+for ( var i = 0; i < 6; i++ ) {
+    list.push('<span>' + Math.floor(Math.random() * 33 + 1) +'</span>');
+}
+
+$('.J-number').html(list.join('') + ' - <span>' + Math.floor(Math.random() * 16 + 1) +'</span>');
+
+</script>
