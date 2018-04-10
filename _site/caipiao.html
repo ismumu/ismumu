@@ -50,12 +50,19 @@
 <script>
 
 var list = [];
+var spanList = [];
 
-for ( var i = 0; i < 6; i++ ) {
-    list.push('<span>' + Math.floor(Math.random() * 33 + 1) +'</span>');
-}
-
-$('.J-number').html(list.join('') + ' - <span>' + Math.floor(Math.random() * 16 + 1) +'</span>');
+var _caipiao = setInterval(function () {
+    var _num = Math.floor(Math.random() * 33 + 1);
+    if ( $.inArray(_num, list) == -1 ) {
+        list.push(_num);
+        spanList.push('<span>' + _num + '</span>');
+        if ( list.length >= 6 ) {
+            $('.J-number').html(spanList.join('') + ' - <span>' + Math.floor(Math.random() * 16 + 1) +'</span>');
+            clearInterval(_caipiao);
+        }
+    }
+}, 1)
 
 </script>
 </body>
