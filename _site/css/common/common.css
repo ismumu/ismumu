@@ -20,6 +20,11 @@ ul, li {
 .blog-content {
     padding-top: 4rem;
     padding-left: 20px;
+    width: 80%;
+    background: #FFF;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: justify;
 }
 
 h1 {
@@ -40,4 +45,12 @@ h2, h3, h4, h5, h6 {
 }
 .navbar .navbar-nav li {
     margin: 0 5px;
+}
+
+
+.blog-canvas {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }

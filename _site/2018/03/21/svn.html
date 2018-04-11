@@ -10,6 +10,7 @@
 	<script src="/js/bootstrap/bootstrap.min.js"></script>
 	<script src="/js/jquery/jquery.pin.js"></script>
 	<script src="/js/gitment/gitment.js"></script>
+	<script src="/js/blog/canvas.code.js"></script>
 
 	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
@@ -55,16 +56,24 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/tag.html?tag=MySQL">MySQL</a>
 				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=WuBai">WuBai</a>
+				</li>
 			
 		</ul>
 	</div>
 </nav>
-
+<canvas class="blog-canvas" id="J-blog-canvas"></canvas>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3 sidebar">
 			<div class="post-list">
 				<ul>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/04/11/wubai.html">伍佰的十道门</a></h2>
+					</li>
 					
 					<li>
 						<h2 class="post-title"><a href="/2018/04/03/mysql-check-port.html">mysql查看当前端口号</a></h2>
@@ -122,7 +131,6 @@
 		</div>
 	</div>
 </div>
-
 <script src="/js/blog/index.js"></script>
 
 </body>
