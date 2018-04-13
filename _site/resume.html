@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人简历</title>
+</head>
+<body>
+    
+<style>
+* {margin: 0; padding: 0;}
+ul, li { list-style: none; }
+a { color: #3279EE; }
+
+.resume {
+    width: 1000px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    padding: 30px 0;
+    color: #333;
+}
+table {
+    width: 100%;
+}
+.info td {
+    line-height: 24px;
+    font-size: 16px;
+}
+.name {
+    width: 80%;
+    font-size: 20px;
+}
+.name span {
+    font-size: 40px;
+}
+
+
+.work {
+    border-bottom: 2px solid #AAA;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.work tr td {
+    border-top: 2px solid #AAA;
+    padding: 30px 10px;
+}
+.work .type {
+    width: 30px;
+    font-size: 22px;
+    border-right: 1px dashed #CCC;
+    text-align: center;;
+}
+
+.skill {}
+.skill li {
+    margin: 10px 0;
+}
+.skill .title {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 20px;
+}
+.skill .progress-bar {
+    display: inline-block;
+    width: 400px;
+    height: 10px;
+    background: #CCC;
+    border-radius: 10px;
+}
+.skill .progress-bar .level {
+    background: #00b88d;
+    height: 100%;
+    display: block;
+    border-radius: 10px;
+}
+.skill .progress-bar .level-1 {
+    width: 10%;
+}
+.skill .progress-bar .level-2 {
+    width: 20%;
+}
+.skill .progress-bar .level-3 {
+    width: 30%;
+}
+.skill .progress-bar .level-4 {
+    width: 40%;
+}
+.skill .progress-bar .level-5 {
+    width: 50%;
+}
+.skill .progress-bar .level-6 {
+    width: 60%;
+}
+.skill .progress-bar .level-7 {
+    width: 70%;
+}
+.skill .progress-bar .level-8 {
+    width: 80%;
+}
+.skill .progress-bar .level-9 {
+    width: 90%;
+}
+
+
+.item {
+    position: relative;
+    padding-left: 30px;
+    margin-left: 30px;
+}
+.item:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-left: 1px #eee dashed;
+    width: 0;
+    top: 12px;
+    left: 10px;
+    bottom: 0px;
+}
+.item h4 {
+    font-weight: normal;
+    font-size: 18px;
+}
+.item h4:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border: 1px #18c3b1 solid;
+    border-radius: 100%;
+    top: 9px;
+    left: 6px;
+}
+.item h4 span {
+    font-size: 14px;
+}
+.item h4 .time {
+    float: right;
+    color: #999;
+}
+
+.item h5 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 10px 0;
+    color: #666;
+}
+.item h5:before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ddd;
+    border-radius: 100%;
+    top: 43px;
+    left: 8px;
+}
+.item .list {
+    padding-bottom: 30px;
+}
+.item .list li {
+    line-height: 20px;
+    color: #999;
+}
+
+
+</style>
+
+
+<div class="resume">
+    <table class="info">
+        <tbody>
+            <tr>
+                <td rowspan="4" class="name"><span>崔富振</span>/前端工程师</td>
+                <td>性别：男</td>
+            </tr>
+            <tr>
+                <td>出生：1989-09-15</td>
+            </tr>
+            <tr>
+                <td>电话：18888955915</td>
+            </tr>
+            <tr>
+                <td>邮件：ismmm@qq.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="work">
+        <tbody>
+            <tr>
+                <td class="type">专业技能</td>
+                <td>
+                    <ul class="skill">
+                        <li>
+                            <span class="title">HTML, CSS</span>
+                            <p class="progress-bar"><span class="level level-9"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">jQuery</span>
+                            <p class="progress-bar"><span class="level level-8"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">ES6</span>
+                            <p class="progress-bar"><span class="level level-8"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">React</span>
+                            <p class="progress-bar"><span class="level level-7"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">Vue</span>
+                            <p class="progress-bar"><span class="level level-3"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">Webpack</span>
+                            <p class="progress-bar"><span class="level level-5"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">Dva</span>
+                            <p class="progress-bar"><span class="level level-6"></span></p>
+                        </li>
+                        <li>
+                            <span class="title">Node, Express</span>
+                            <p class="progress-bar"><span class="level level-5"></span></p>
+                        </li>
+                        
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="type">工作经历</td>
+                <td>
+                    <div class="item">
+                        <h4><span class="time">2015-01 至 2017-11</span>杭州珺墨网络科技有限公司<span class="position">/前端组长</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>1. 管理分配前端工作</li>
+                            <li>2. 开发无忧保项目，维护版本迭代（<a target="_blank" href="https://www.shebaoonline.com">https://www.shebaoonline.com</a>）</li>
+                            <li>3. 招聘选拔合适的人才</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4><span class="time">2015-01 至 2017-11</span>杭州今元标矩科技有限公司<span class="position">/前端组长</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>1. 管理分配前端工作</li>
+                            <li>2. 开发无忧保项目，维护版本迭代（<a target="_blank" href="https://www.shebaoonline.com">https://www.shebaoonline.com</a>）</li>
+                            <li>3. 招聘选拔合适的人才</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4><span class="time">2014-08 至 2015-01</span>北京瑞友科技有限公司<span class="position">/前端开发</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>开发阿里天池项目（<a target="_blank" href="http://tianchi.aliyun.com">http://tianchi.aliyun.com</a>）</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4><span class="time">2014-06 至 2014-08</span>杭州兑吧科技有限公司<span class="position">/前端开发</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>开发公司官网<a target="_blank" href="http://www.duiba.com.cn">http://www.duiba.com.cn</a>）</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4><span class="time">2010-11 至 2014-06</span>杭州博彦科技股份有限公司<span class="position">/前端开发</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>主要开发淘宝的活动页面，其中11年至14年被外派到淘宝UED担任前端开发，负责推广活动页制作。参与过双11项目。</li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <h4><span class="time">2010-04 至 2010-11</span>杭州商聪技术有限公司<span class="position">/前端开发</span></h4>
+                        <h5>工作内容</h5>
+                        <ul class="list">
+                            <li>主要负责公司商城页面的开发</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="type">项目经验</td>
+                <td>
+                    项目一: p2p 金融理财项目
+                    项目描述: 包括 app、web、微信端的三端 p2p 金融理财投资项目，主要项目地址有好麦 金融(https://www.haomaijr.com)、领奇理财(https://www.lingqilc.com)等多家平台
+                    责任描述:
+                    1.参与项目的需求评审
+                    2.测试设计以及测试用例编写
+                    3.执行功能测试工作 4.利用编程方式对接口进行自动化测试工作:主要运用了 java+httpclient+testng 进行测试，实现了数据驱动对用例管理 5.运用 selenium+java 对 web 进行 UI 自动化测试和 appium+java 对 Android 进行 UI 自动化测试，主要运用了 po 模式的设计思想，对代 码进行编程和维护
+                </td>
+            </tr>
+            <tr>
+                <td class="type">教育经历</td>
+                <td>
+                    学校:河南大学民生学院(2011/9 - 2015/7)
+                    学历:本科
+                    专业:自动化
+                </td>
+            </tr>
+            <tr>
+                <td class="type">自我评价</td>
+                <td>
+                    热爱测试。工作态度认真、刻苦，责任心强，具备良好的团队合作精神，自学能力
+                    较强，积累了一定的测试经验。
+                    性格乐观开朗，对工作认真负责，喜欢测试。
+                    适应能力强，容易接受新知识。
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+</html>
