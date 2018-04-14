@@ -68,7 +68,7 @@ var tagData = {}
 	{% for post in tag[1] %}
 	tagData.{{tag[0]}}.push({
 		title: `{{post.title}}`,
-		date: {{post.date | 'date':"%d/%m/%Y"}},
+		date: {{post.date | date: "%d/%m/%Y"}},
 		content: `{{post.content}}`,
 		url: `{{post.url}}`,
 	})
