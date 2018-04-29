@@ -10,7 +10,7 @@ tags: [Javascript]
 
 可点击查看大图
 
-<a href="/images/blog/1.png" target="_blank"><img width="1000" src="/images/blog/1.png"></a>
+<a href="/images/blog/1.png" target="_blank"><img style="width: 100%;" src="/images/blog/1.png"></a>
 
 
 
