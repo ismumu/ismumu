@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: 在React中使用echarts的graph完成时间轴
+title: React-echarts-graph
 tags: [Javascript]
 ---
 

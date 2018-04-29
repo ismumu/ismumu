@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>node + express + multer上传图片 - ismumu' home</title>
+	<link rel="shortcut icon" href="/favicon.ico">
+	<script src="/js/jquery/jquery.min.js"></script>
+	<script src="/js/popper/popper.min.js"></script>
+	<script src="/js/bootstrap/bootstrap.min.js"></script>
+	<script src="/js/jquery/jquery.pin.js"></script>
+	<script src="/js/gitment/gitment.js"></script>
+	<script src="/js/blog/canvas.code.js"></script>
+
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/gitment/gitment.css">
+	<link rel="stylesheet" href="/css/common/common.css">
+	<link rel="stylesheet" href="/css/highlight/highlight.css">
+	<link rel="stylesheet" href="/css/blog/index.css">
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<a class="navbar-brand" href="/">ismumu' home</a> | 
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav">
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=Javascript">Javascript</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=GitHub">GitHub</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=Regex">Regex</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=Nginx">Nginx</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=Linux">Linux</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=Svn">Svn</a>
+				</li>
+			 
+				<li class="nav-item">
+					<a class="nav-link" href="/tag.html?tag=MySQL">MySQL</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+<canvas class="blog-canvas" id="J-blog-canvas"></canvas>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 sidebar">
+			<div class="post-list">
+				<ul>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/04/29/node-multer.html">node + express + multer上传图片</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/04/19/echarts-graph.html">React-echarts-graph</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/04/03/mysql-check-port.html">mysql查看当前端口号</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/03/21/svn.html">svn常见问题汇总</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2018/03/21/linux.html">linux常见问题汇总</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2017/08/09/nginx-spa.html">在Nginx下配置使用单页面spa</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2017/08/08/gzip.html">Nginx开启gzip</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2017/07/08/regex.html">常用正则总结</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2017/06/05/create-github-pages.html">创建github page</a></h2>
+					</li>
+					
+					<li>
+						<h2 class="post-title"><a href="/2016/06/06/different-time-zones.html">new Date 不同时区的转换</a></h2>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="blog-content">
+				<h1>node + express + multer上传图片</h1>
+				<h2 id="一服务端配置">一、服务端配置</h2>
+
+<p>在express生成器生成的项目里找到根目录下的app.js，并进行以下修改</p>
+
+<p>1.引入安装依赖</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">multer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'multer'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">upload</span> <span class="o">=</span> <span class="nx">multer</span><span class="p">({</span> <span class="na">dest</span><span class="p">:</span> <span class="s1">'uploads/'</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>2.添加上传图片的路由</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 多个文件上传</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/upload-multiple'</span><span class="p">,</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">array</span><span class="p">(</span><span class="s1">'myfile'</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c1">// 上传的多个文件的信息，数组类型</span>
+	<span class="kd">let</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+
+	<span class="nx">files</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="kd">let</span> <span class="nx">suffix</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+		<span class="nx">fs</span><span class="p">.</span><span class="nx">renameSync</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">);</span>
+	<span class="p">})</span>
+
+	<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">"done"</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// 单个文件上传</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/upload'</span><span class="p">,</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">single</span><span class="p">(</span><span class="s1">'logo'</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c1">// 上传的文件信息</span>
+	<span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+
+	<span class="c1">// 图片后缀</span>
+	<span class="kd">let</span> <span class="nx">suffix</span> <span class="o">=</span> <span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+
+	<span class="nx">fs</span><span class="p">.</span><span class="nx">renameSync</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">);</span>
+
+	<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'done'</span><span class="p">);</span>
+
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="二客户端配置">二、客户端配置</h2>
+
+<p>创建一个html并且写入：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">action=</span><span class="s">"/upload"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"logo"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;&lt;/input&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+
+<span class="nt">&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">action=</span><span class="s">"/upload-multiple"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"myfile"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"myfile"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;&lt;/input&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h2 id="123123">123123</h2>
+
+
+				<div id="comments"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/blog/index.js"></script>
+
+</body>
+</html>

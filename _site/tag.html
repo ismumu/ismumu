@@ -25,7 +25,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<a class="navbar-brand" href="/2018/04/19/echarts-graph.html">ismumu' home</a> | 
+	<a class="navbar-brand" href="/2018/04/29/node-multer.html">ismumu' home</a> | 
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav">
 			 
@@ -88,6 +88,8 @@ var tagData = {}
 	
 	tagData.Javascript = [];
 	
+	tagData.Javascript = [];
+	
 
 	
 	tagData.GitHub = [];
@@ -119,7 +121,78 @@ var tagData = {}
 
 	
 	tagData.Javascript.push({
-		title: `在React中使用echarts的graph完成时间轴`,
+		title: `node + express + multer上传图片`,
+		date: 29/04/2018,
+		content: `<h2 id="一服务端配置">一、服务端配置</h2>
+
+<p>在express生成器生成的项目里找到根目录下的app.js，并进行以下修改</p>
+
+<p>1.引入安装依赖</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">multer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'multer'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">upload</span> <span class="o">=</span> <span class="nx">multer</span><span class="p">({</span> <span class="na">dest</span><span class="p">:</span> <span class="s1">'uploads/'</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>2.添加上传图片的路由</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 多个文件上传</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/upload-multiple'</span><span class="p">,</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">array</span><span class="p">(</span><span class="s1">'myfile'</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c1">// 上传的多个文件的信息，数组类型</span>
+	<span class="kd">let</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">;</span>
+
+	<span class="nx">files</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="kd">let</span> <span class="nx">suffix</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+		<span class="nx">fs</span><span class="p">.</span><span class="nx">renameSync</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">);</span>
+	<span class="p">})</span>
+
+	<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">"done"</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="c1">// 单个文件上传</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/upload'</span><span class="p">,</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">single</span><span class="p">(</span><span class="s1">'logo'</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+
+	<span class="c1">// 上传的文件信息</span>
+	<span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+
+	<span class="c1">// 图片后缀</span>
+	<span class="kd">let</span> <span class="nx">suffix</span> <span class="o">=</span> <span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+
+	<span class="nx">fs</span><span class="p">.</span><span class="nx">renameSync</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">path</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">path</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="nx">suffix</span><span class="p">);</span>
+
+	<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'done'</span><span class="p">);</span>
+
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="二客户端配置">二、客户端配置</h2>
+
+<p>创建一个html并且写入：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">action=</span><span class="s">"/upload"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"logo"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;&lt;/input&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+
+<span class="nt">&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</span>
+
+<span class="nt">&lt;form</span> <span class="na">enctype=</span><span class="s">"multipart/form-data"</span> <span class="na">action=</span><span class="s">"/upload-multiple"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"myfile"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">name=</span><span class="s">"myfile"</span><span class="nt">&gt;&lt;/input&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"提交"</span><span class="nt">&gt;&lt;/input&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h2 id="123123">123123</h2>
+
+`,
+		url: `/2018/04/29/node-multer.html`,
+	})
+	
+	tagData.Javascript.push({
+		title: `React-echarts-graph`,
 		date: 19/04/2018,
 		content: `<h3 id="效果图">效果图</h3>
 
