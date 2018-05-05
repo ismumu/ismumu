@@ -56,11 +56,11 @@ body {
 	color: #FFF;
 	font-size: 20px;
 	display: inline-block;
-	padding: 5px 15px;
+	padding: 5px 10px;
 	position: relative;
 	-webkit-transition: color .3s;
 	transition: color .3s;
-	margin: 0 15px;
+	margin: 0 5px;
 }
 
 .homeContent nav a:after,.homeContent nav a:before {
