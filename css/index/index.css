@@ -5,6 +5,7 @@ body {
 	overflow: hidden;
 	background: url(../../images/index/pw_maze_black_2X.png) left top repeat;
 	height: 100vh;
+	font-family: "Verdana","Helvetica","Arial",sans-serif
 }
 
 
@@ -41,7 +42,6 @@ body {
 }
 
 .homeContent h1 {
-	font-family: 'Verdana';
 	font-weight: normal;
 	font-size: 30px;
 	opacity: 0.9;
