@@ -60,3 +60,11 @@ body {
 .homeContent h2 {
     font-weight: normal;
 }
+.homeContent .forkme {
+    display: block;
+    width: 149px;
+    height: 149px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
