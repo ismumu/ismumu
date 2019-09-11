@@ -134,11 +134,14 @@ table {
     top: 9px;
     left: 6px;
 }
-.item h4 span {
+.item h4 .position {
     font-size: 14px;
 }
 .item h4 .time {
     float: right;
+    color: #999;
+}
+.item h4 .des {
     color: #999;
 }
 
@@ -213,19 +216,19 @@ table {
                             <p class="progress-bar"><span class="level level-9"></span></p>
                         </li>
                         <li>
+                            <span class="title">JavaScript, ES6</span>
+                            <p class="progress-bar"><span class="level level-9"></span></p>
+                        </li>
+                        <li>
                             <span class="title">jQuery</span>
                             <p class="progress-bar"><span class="level level-8"></span></p>
                         </li>
                         <li>
-                            <span class="title">ES6</span>
-                            <p class="progress-bar"><span class="level level-8"></span></p>
-                        </li>
-                        <li>
-                            <span class="title">React</span>
+                            <span class="title">React, Taro</span>
                             <p class="progress-bar"><span class="level level-7"></span></p>
                         </li>
                         <li>
-                            <span class="title">Vue</span>
+                            <span class="title">Vue, WePY</span>
                             <p class="progress-bar"><span class="level level-3"></span></p>
                         </li>
                         <li>
@@ -248,7 +251,7 @@ table {
                 <td class="type">工作经历</td>
                 <td>
                     <div class="item">
-                        <h4><span class="time">2017-12 至今</span>杭州珺墨网络科技有限公司<span class="position">/前端开发</span></h4>
+                        <h4><span class="time">2017-12 至今</span>杭州珺墨网络科技有限公司<span class="des">【驻场传化】</span><span class="position">/前端开发</span></h4>
                         <h5>工作内容</h5>
                         <ul class="list">
                             <li>1. 开发新安化工OMS物流平台</li>
@@ -262,8 +265,9 @@ table {
                         <h5>工作内容</h5>
                         <ul class="list">
                             <li>1. 协调分配前端项目工作</li>
-                            <li>2. 跟进前端组日常工作(分享/周会/代码review/使用git/参加项目评审会议)</li>
+                            <li>2. 跟进前端组日常工作(分享/周会/代码review/推行Git/参加项目评审会议)</li>
                             <li>3. 负责无忧保项目开发迭代</li>
+                            <li>4. 参与无忧保后台系统、官网、官网后台等系统开发</li>
                         </ul>
                     </div>
                     <div class="item">
@@ -274,18 +278,18 @@ table {
                         </ul>
                     </div>
                     <div class="item">
-                        <h4><span class="time">2010-11 至 2014-06</span>杭州博彦科技股份有限公司<span class="position">/前端开发</span></h4>
+                        <h4><span class="time">2010-11 至 2014-06</span>杭州博彦科技股份有限公司<span class="des">【驻场阿里】</span><span class="position">/前端开发</span></h4>
                         <h5>工作内容</h5>
                         <ul class="list">
                             <li>1. 开发淘宝的推广活动页面</li>
-                            <li>2. 参与过双11分会场页面制作</li>
+                            <li>2. 参与双11分会场页面开发</li>
                         </ul>
                     </div>
                     <div class="item">
                         <h4><span class="time">2010-04 至 2010-11</span>杭州商聪技术有限公司<span class="position">/前端开发</span></h4>
                         <h5>工作内容</h5>
                         <ul class="list">
-                            <li>主要负责公司商城页面的开发</li>
+                            <li>负责公司商城页面的开发</li>
                         </ul>
                     </div>
                 </td>
@@ -297,7 +301,7 @@ table {
                         <h4><span class="time">2017-11 至今</span>OMS物流平台<span class="position">（<a target="_blank" href="https://iloop.tf56.com">https://iloop.tf56.com</a>）</span></h4>
                         <h5>项目简介</h5>
                         <ul class="list">
-                            <li>1. 整体项目采用分离</li>
+                            <li>1. 整体项目前后分离</li>
                             <li>2. 使用Dva作为基础脚手架</li>
                             <li>3. 采用React + Antd框架</li>
                             <li>4. 实现了基础数据、报表管理、异常管理、物流订单管理等模块功能</li>
@@ -307,17 +311,17 @@ table {
                         <h4><span class="time">2019-08 至 2019-09</span>天眼承运（小程序）</h4>
                         <h5>项目简介</h5>
                         <ul class="list">
-                            <li>1. 小程序框架采用Taro</li>
+                            <li>1. 该小程序框架采用Taro</li>
                             <li>2. 支持微信手机号授权一键登录</li>
                             <li>3. 支持未授权登录情况下进行部分操作</li>
                             <li>4. 实现了承运方在线查单、上报、回单等模块</li>
                         </ul>
                     </div>
                     <div class="item">
-                        <h4><span class="time">2019-04 至 2019-05</span>悟流天眼（小程序）</h4>
+                        <h4><span class="time">2019-04 至 2019-05</span>翼联镖星（小程序）</h4>
                         <h5>项目简介</h5>
                         <ul class="list">
-                            <li>1. 小程序框架采用wepy + weui</li>
+                            <li>1. 该小程序框架采用wepy</li>
                             <li>2. 支持多角色切换(货主、承运商、司机、收货方)</li>
                             <li>3. 货主角色：实现了创建订单、订单列表、订单轨迹跟踪、回单核销、设备定位等功能</li>
                             <li>4. 司机/收货方角色：实现了扫码查单、签收、上报位置等功能</li>
@@ -327,8 +331,8 @@ table {
                         <h4><span class="time">2016-11 至 2017-11</span>无忧保（公众号）</h4>
                         <h5>项目简介</h5>
                         <ul class="list">
-                            <li>1. 前端框架采用Framework</li>
-                            <li>2. 页面适配IOS和Android浏览器</li>
+                            <li>1. 前端框架采用Framework7</li>
+                            <li>2. 页面适配IOS和Android系统</li>
                             <li>3. 无忧保是在线式个体用户自主缴纳社保和公积金平台</li>
                             <li>4. 实现了个人注册、购买社保公积金、退款、查看订单等模块功能</li>
                         </ul>
@@ -337,7 +341,7 @@ table {
                         <h4><span class="time">2016-11 至 2017-11</span>无忧保管理后台</h4>
                         <h5>项目简介</h5>
                         <ul class="list">
-                            <li>1. 整体项目半前后分离式</li>
+                            <li>1. 整体项目前后分离</li>
                             <li>2. 使用Webpack搭建的脚手架</li>
                             <li>3. 采用React + Antd框架</li>
                             <li>4. 实现了各城市基础政策包、服务商管理、参保人管理、订单管理等模块功能</li>
